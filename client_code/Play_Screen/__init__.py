@@ -3,6 +3,8 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+import time
+
 
 class Play_Screen(Play_ScreenTemplate):
   def __init__(self, **properties):
@@ -15,5 +17,21 @@ class Play_Screen(Play_ScreenTemplate):
           'duplicate_words': [], 'source_word_check': False}
     prev_words = []
     source_word = anvil.server.call('pick_source_word')
-    print(source_word)
     self.word_label.text = source_word
+    
+    self.item['curr_time'] = time.time()
+    print("curr_time = ", self.item['curr_time'])
+
+    
+  def answer_box_show(self, **event_args):
+    """This method is called when the TextBox is shown on the screen"""
+    self.answer_box.focus()
+
+  def finished_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.item['end_time'] = time.time()
+    self.item['total_time'] = round(self.item['end_time'] - self.item['curr_time'], 4)
+    print(self.item['total_time'])
+
+
+
