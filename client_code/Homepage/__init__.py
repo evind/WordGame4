@@ -19,7 +19,13 @@ class Homepage(HomepageTemplate):
     prev_words = []
     # leaderboard stuff
     # create dictionary
-    anvil.server.call('create_dictionary')
+    for i in range(0, 1000):
+      print(i)
+      source_word = anvil.server.call('pick_source_word')
+      if len(source_word) < 8:
+        print(source_word, " < 8")
+    #source_word = anvil.server.call('pick_source_word')
+    #print(source_word)
     #open_form('Play_Screen')
 
 
