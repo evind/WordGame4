@@ -13,12 +13,7 @@ class Homepage(HomepageTemplate):
 
   def play_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-
-    # leaderboard stuff
-    # create dictionary
-    #source_word = anvil.server.call('pick_source_word')
-    #print(source_word)
-    #open_form('Play_Screen')
+    open_form('Play_Screen')
 
 
 

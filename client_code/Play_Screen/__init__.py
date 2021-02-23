@@ -14,3 +14,6 @@ class Play_Screen(Play_ScreenTemplate):
           'invalid_words': [], 'small_words': [],
           'duplicate_words': [], 'source_word_check': False}
     prev_words = []
+    source_word = anvil.server.call('pick_source_word')
+    print(source_word)
+    self.word_label.text = source_word

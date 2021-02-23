@@ -30,11 +30,13 @@ components:
       layout_properties: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: sourceword, font_size: null, font: '', spacing_above: small,
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       name: word_label
       layout_properties: {}
+      data_bindings:
+      - {property: text, code: 'self.item[''source_word'']'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Enter 7 space-separated words here:', font_size: null,
@@ -49,6 +51,7 @@ components:
       background: 'theme:White', bold: false, underline: false}
     name: answer_box
     layout_properties: {grid_position: 'DJLYHN,FFHVSH'}
+    data_bindings: []
   - type: Spacer
     properties: {height: 32}
     name: spacer_1
