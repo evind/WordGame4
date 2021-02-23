@@ -1,9 +1,9 @@
 services: []
-package_name: Material_Design_2
+package_name: CA3
 allow_embedding: false
 name: CA3
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
-startup_form: Form1
+startup_form: Homepage
 db_schema: []
 renamed: true

@@ -13,3 +13,6 @@ import anvil.server
 #   return 42
 #
 
+@anvil.server.callable
+def create_dictionary():
+  print(hello)
