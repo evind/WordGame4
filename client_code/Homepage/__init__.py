@@ -1,5 +1,7 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.server
 
 class Homepage(HomepageTemplate):
@@ -17,7 +19,8 @@ class Homepage(HomepageTemplate):
     prev_words = []
     # leaderboard stuff
     # create dictionary
-    open_form('Play_Screen')
+    anvil.server.call('create_dictionary')
+    #open_form('Play_Screen')
 
 
 

@@ -1,4 +1,57 @@
-services: []
+services:
+- source: /runtime/services/google.yml
+  client_config:
+    app_files:
+    - capabilities: {canCopy: true, canEdit: true}
+      editable: true
+      copyable: true
+      webContentLink: https://drive.google.com/uc?id=16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg&export=download
+      embedLink: https://drive.google.com/file/d/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg/preview?usp=drivesdk
+      fileExtension: ''
+      copyRequiresWriterPermission: false
+      python_name: words
+      explicitlyTrashed: false
+      lastModifyingUser: {kind: drive#user, displayName: Evin Darling, isAuthenticatedUser: true,
+        permissionId: '16175700147482122567', emailAddress: evnelk@gmail.com}
+      shared: false
+      createdDate: '2021-01-28T19:36:42.118Z'
+      id: 16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg
+      owners:
+      - {kind: drive#user, displayName: Evin Darling, isAuthenticatedUser: true, permissionId: '16175700147482122567',
+        emailAddress: evnelk@gmail.com}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {kind: drive#parentReference, id: 1r3Lx4w4JyX158AJGPWhDIKp5wp92J2CG, selfLink: 'https://www.googleapis.com/drive/v2/files/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg/parents/1r3Lx4w4JyX158AJGPWhDIKp5wp92J2CG',
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1r3Lx4w4JyX158AJGPWhDIKp5wp92J2CG',
+        isRoot: false}
+      labels: {starred: false, hidden: false, trashed: false, restricted: false, viewed: true}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/octet-stream
+      headRevisionId: 0By6tYbzzYIUPeFp1ZWdBZVh3a3grMFpkNzE3YVBRWHlEcmVNPQ
+      permission: roclient
+      selfLink: https://www.googleapis.com/drive/v2/files/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg
+      lastViewedByMeDate: '2021-02-23T16:54:33.116Z'
+      userPermission: {kind: drive#permission, etag: '"cETxFpeQ0qoXFan0Wqm5pkEbA9c"',
+        id: me, selfLink: 'https://www.googleapis.com/drive/v2/files/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg/permissions/me',
+        role: owner, type: user}
+      lastModifyingUserName: Evin Darling
+      etag: '"MTYxMTA3OTUxODAwMA"'
+      kind: drive#file
+      modifiedByMeDate: '2021-01-19T18:05:18.000Z'
+      title: words
+      version: '5'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '976241'
+      alternateLink: https://drive.google.com/file/d/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg/view?usp=drivesdk
+      mimeType: application/octet-stream
+      modifiedDate: '2021-01-19T18:05:18.000Z'
+      downloadUrl: https://www.googleapis.com/drive/v2/files/16PD1USN4UI4EMmr4EN4qp9kiVfiOR4Dg?alt=media&source=downloadUrl
+      quotaBytesUsed: '976241'
+      md5Checksum: 7d06f540d0a65a46e6d65c5254edb21f
+      originalFilename: words
+      ownerNames: [Evin Darling]
+  server_config: {delegation_refresh_token: 1//03aE6vbQGw0ACCgYIARAAGAMSNwF-L9IrCgl30beFKKPeFvfl--kwNBOjROs_hAehLk24DaQd45dcaaijhtrGtnLHJmG2g1fE1Mg}
 package_name: CA3
 allow_embedding: false
 name: CA3
