@@ -22,12 +22,66 @@ data = app_files.words.get_bytes().decode()
 words = list(data.split("\n"))
 words = {line.strip("\n").replace("'s", "").lower() for line in words}  # A set.
 words = sorted(words)[1:]  # Ignore the empty word at the start of the list.
+source_word_list = []
 
 @anvil.server.callable
 def pick_source_word():
-    source_word_list = []
+    global source_word_list, words
     for word in words:
         if len(word) >= 8:
             source_word_list.append(word)
     random_int = random.randint(0, len(source_word_list) - 1)
     return source_word_list[random_int]
+  
+  
+@anvil.server.callable
+def calculate_time(curr_time, end_time):
+  total_time = round(end_time - curr_time, 4)
+  return total_time
+  
+  
+@anvil.server.callable
+def evaluate_answer(source_word, user_input_list):
+  rules = {'valid_input': True, 'invalid_letters': [],
+      'invalid_words': [], 'small_words': [],
+      'duplicate_words': [], 'source_word_check': False}
+  prev_words = []
+  
+  if len(user_input_list) != 8:
+    rules['valid_input'] = False
+    
+  for word in user_input_list:
+    global words
+    temp_list = list(source_word)
+    # 1. check if word made from letters in source word
+    for ch in word:
+        if ch in temp_list:
+            temp_list.remove(ch)
+        else:
+            if ch not in rules['invalid_letters']:
+                rules['invalid_letters'].append(ch)
+            rules['valid_input'] = False
+    # 2. check if word exists in dictionary
+    if word not in words:
+        rules['invalid_words'].append(word)
+        rules['valid_input'] = False
+    # 3. check if word is 4+ letters
+    if len(word) < 4:
+        rules['small_words'].append(word)
+        rules['valid_input'] = False
+    # 4. check if word is duplicate
+    if word in prev_words:
+        rules['duplicate_words'].append(word)
+        rules['valid_input'] = False
+    prev_words.append(word)
+    # 5. check if word is source word
+    if word == source_word:
+        rules['source_word_check'] = True
+        rules['valid_input'] = False
+          
+  print("valid_input = ", rules['valid_input'])
+  print("invalid_letters = ", rules['invalid_letters'])
+  print("invalid_words = ", rules['invalid_words'])
+  print("small_words = ", rules['small_words'])
+  print("duplicate_words = ", rules['duplicate_words'])
+  print("source_word_check = ", rules['source_word_check'])
