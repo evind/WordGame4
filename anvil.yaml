@@ -1,6 +1,9 @@
-allow_embedding: false
-package_name: Material_Design_2
-name: Material Design 2
-startup_form: Form1
-runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 services: []
+package_name: Material_Design_2
+allow_embedding: false
+name: CA3
+runtime_options: {version: 2, client_version: '3', server_version: python3-full}
+metadata: {}
+startup_form: Form1
+db_schema: []
+renamed: true
