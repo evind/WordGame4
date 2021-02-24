@@ -8,6 +8,8 @@ from anvil.google.drive import app_files
 #
 #    Module1.say_hello()
 #
-str(source_word)
+source_word = ""
 user_input_list = []
 rules = {}
+errors = []
+time = 0

@@ -27,18 +27,12 @@ class Play_Screen(Play_ScreenTemplate):
 
   def finished_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    global rules, user_input_list
+    global rules, user_input_list, time
     self.item['end_time'] = time.time()
-    self.item['total_time'] = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
+    Globals.time = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
     Globals.user_input_list = self.answer_box.text.split()
-    Globals.rules = anvil.server.call('evaluate_answer', self.item['source_word'], self.item['user_input_list'])
-#     print("play screen")
-#     print("source_word: ", self.item['source_word'])
-#     print("user_input_list: ", self.item['user_input_list'])
-#     print("valid_input: ", Globals.rules['valid_input'])
-#     print("invalid_letters: ", Globals.rules['invalid_letters'])
-#     print("invalid_words: ", Globals.rules['invalid_words'])
-#     print("small_words: ", Globals.rules['small_words'])
-#     print("duplicate_words: ", Globals.rules['duplicate_words'])
-#     print("source_word_check: ", Globals.rules['source_word_check'])
-    open_form('Score_Screen')
+    Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
+    if not Globals.rules['valid_input']:
+      Globals.errors = anvil.server.call('generate_errors', Globals.rules)
+
+    open_form('Win_Screen')

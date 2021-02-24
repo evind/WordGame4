@@ -74,5 +74,5 @@ components:
     visible: true, text: 'Okay, go!', font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
     underline: false, icon: ''}
-  name: play_title_1
+  name: title
   layout_properties: {slot: title}

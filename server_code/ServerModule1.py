@@ -44,12 +44,12 @@ def calculate_time(curr_time, end_time):
   
 @anvil.server.callable
 def evaluate_answer(source_word, user_input_list):
-  rules = {'valid_input': True, 'invalid_letters': [],
+  rules = {'valid_input': True, 'word_count':len(user_input_list), 'invalid_letters': [],
       'invalid_words': [], 'small_words': [],
       'duplicate_words': [], 'source_word_check': False}
   prev_words = []
   
-  if len(user_input_list) != 7:
+  if rules['word_count'] != 7:
     rules['valid_input'] = False
     
   for word in user_input_list:
@@ -81,3 +81,63 @@ def evaluate_answer(source_word, user_input_list):
         rules['valid_input'] = False
   return rules
           
+
+@anvil.server.callable
+def generate_errors(rules):
+  errors = []
+  if rules['word_count'] != 7:
+    errors.append("Invalid number of words: {0} / 7".format(rules['word_count']))
+  if rules['invalid_letters']:
+    errors.append("Invalid letters: " + ", ".join(rules['invalid_letters']))
+  if rules['invalid_words']:
+    errors.append("Invalid words: " + ", ".join(rules['invalid_words']))
+  if rules['small_words']:
+    errors.append("Small words: " + ", ".join(rules['small_words']))
+  if rules['duplicate_words']:
+    errors.append("Duplicate words: " + ", ".join(rules['duplicate_words']))
+  if rules['source_word_check']:
+    errors.append("You may not use the source word!")
+  
+  return errors
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
