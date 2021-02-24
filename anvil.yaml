@@ -62,11 +62,27 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
 startup_form: Homepage
 db_schema:
-- name: highscores
+- name: scores
   id: 107890
-  python_name: highscores
-  columns: {}
-  access: {python_name: highscores, app_id: UXSVYDQJR66KQWXP, server: full, client: none,
+  python_name: scores
+  columns:
+    L2jEaW+A5HU=:
+      name: matches
+      type: string
+      admin_ui: {order: 3, width: 200}
+    VHVTnOxcdx0=:
+      name: source_word
+      type: string
+      admin_ui: {order: 2, width: 200}
+    WahDwop3ptg=:
+      name: name
+      type: string
+      admin_ui: {order: 1, width: 200}
+    YOxrLwEn8pE=:
+      name: time
+      type: number
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: scores, app_id: UXSVYDQJR66KQWXP, server: full, client: none,
     table_mapping_name: null, table_mapping_id: null, table_id: 107890}
 - name: log
   id: 107889

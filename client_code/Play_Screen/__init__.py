@@ -15,6 +15,7 @@ class Play_Screen(Play_ScreenTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+
     # Any code you write here will run when the form opens.
     global source_word
     Globals.source_word = anvil.server.call('pick_source_word')
@@ -35,8 +36,10 @@ class Play_Screen(Play_ScreenTemplate):
     Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
     
     # log info to table
-    anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list)
+    user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['user-agent']
+    anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list, user_agent)
     
+    #open_form('Win_Screen')
     if not Globals.rules['valid_input']:
       Globals.errors = anvil.server.call('generate_errors', Globals.rules)
       open_form('Lose_Screen')

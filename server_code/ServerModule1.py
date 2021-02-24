@@ -106,17 +106,29 @@ def generate_errors(rules):
   
   
 @anvil.server.callable
-def log_attempt(rules, source_word, user_input_list):
+def log_attempt(new_rules, new_source_word, new_user_input_list, new_user_agent):
   app_tables.log.add_row(
-      won=rules['valid_input'],
-      source_word=source_word,
-      guesses=", ".join(user_input_list),
+      won=new_rules['valid_input'],
+      source_word=new_source_word,
+      guesses=", ".join(new_user_input_list),
       datetime=datetime.now(),
-      ip_address="temp.0.0.1",
-      user_agent="temp-user-agent"
+      ip_address=anvil.server.context.client.ip,
+      user_agent=new_user_agent
     )
+
+@anvil.server.callable
+def log_score(new_time, new_name, new_source_word, new_matches):
+  app_tables.scores.add_row(
+    time=new_time,
+    name=new_name,
+    source_word=new_source_word,
+    matches=", ".join(new_matches)
+  )
   
   
+@anvil.server.http_endpoint('/get-user-agent')
+def get_user_agent():
+  return {'user-agent': anvil.server.request.headers['user-agent']}
   
   
   
