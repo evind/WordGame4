@@ -1,0 +1,48 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: 'theme:Gray 300', foreground: '', border: '',
+    visible: true, role: null, html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: invalid_words_num_lbl
+    layout_properties: {grid_position: 'PJEYAB,NRAJLK'}
+  - type: Label
+    properties: {}
+    name: invalid_letters_lbl
+    layout_properties: {grid_position: 'YNUATV,KUTJJZ'}
+  - type: Label
+    properties: {}
+    name: invalid_words_lbl
+    layout_properties: {grid_position: 'EYPTHX,SHKZYH'}
+  - type: Label
+    properties: {}
+    name: small_words_lbl
+    layout_properties: {grid_position: 'FACSOB,SYQIYO'}
+  - type: Label
+    properties: {}
+    name: duplicate_words_lbl
+    layout_properties: {grid_position: 'YFWHAE,RTCIVQ'}
+  - type: Label
+    properties: {}
+    name: source_word_lbl
+    layout_properties: {grid_position: 'PLIYRS,HBGGRC'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_1
+  layout_properties: {slot: title}

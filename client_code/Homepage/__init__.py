@@ -4,6 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 
+
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -14,6 +15,5 @@ class Homepage(HomepageTemplate):
   def play_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Play_Screen')
-
 
 

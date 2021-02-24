@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import random
+from . import Globals
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -23,6 +24,7 @@ words = list(data.split("\n"))
 words = {line.strip("\n").replace("'s", "").lower() for line in words}  # A set.
 words = sorted(words)[1:]  # Ignore the empty word at the start of the list.
 source_word_list = []
+
 
 @anvil.server.callable
 def pick_source_word():
@@ -47,11 +49,10 @@ def evaluate_answer(source_word, user_input_list):
       'duplicate_words': [], 'source_word_check': False}
   prev_words = []
   
-  if len(user_input_list) != 8:
+  if len(user_input_list) != 7:
     rules['valid_input'] = False
     
   for word in user_input_list:
-    global words
     temp_list = list(source_word)
     # 1. check if word made from letters in source word
     for ch in word:
@@ -78,10 +79,5 @@ def evaluate_answer(source_word, user_input_list):
     if word == source_word:
         rules['source_word_check'] = True
         rules['valid_input'] = False
+  return rules
           
-  print("valid_input = ", rules['valid_input'])
-  print("invalid_letters = ", rules['invalid_letters'])
-  print("invalid_words = ", rules['invalid_words'])
-  print("small_words = ", rules['small_words'])
-  print("duplicate_words = ", rules['duplicate_words'])
-  print("source_word_check = ", rules['source_word_check'])
