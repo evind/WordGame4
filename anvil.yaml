@@ -52,11 +52,50 @@ services:
       originalFilename: words
       ownerNames: [Evin Darling]
   server_config: {delegation_refresh_token: 1//03aE6vbQGw0ACCgYIARAAGAMSNwF-L9IrCgl30beFKKPeFvfl--kwNBOjROs_hAehLk24DaQd45dcaaijhtrGtnLHJmG2g1fE1Mg}
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
 package_name: CA3
 allow_embedding: false
 name: CA3
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
 startup_form: Homepage
-db_schema: []
+db_schema:
+- name: highscores
+  id: 107890
+  python_name: highscores
+  columns: {}
+  access: {python_name: highscores, app_id: UXSVYDQJR66KQWXP, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 107890}
+- name: log
+  id: 107889
+  python_name: log
+  columns:
+    1Y2gs+A4eek=:
+      name: datetime
+      type: datetime
+      admin_ui: {order: 3, width: 200}
+    4cBPjidaLsI=:
+      name: user_agent
+      type: string
+      admin_ui: {order: 5, width: 200}
+    SFRyMCFJ2NM=:
+      name: guesses
+      type: string
+      admin_ui: {order: 2, width: 200}
+    lxNpGmXvRBo=:
+      name: won
+      type: bool
+      admin_ui: {order: 0, width: 200}
+    rA2SE+DiPd8=:
+      name: ip_address
+      type: string
+      admin_ui: {order: 4, width: 200}
+    teua_8oEa5I=:
+      name: source_word
+      type: string
+      admin_ui: {order: 1, width: 200}
+  access: {python_name: log, app_id: UXSVYDQJR66KQWXP, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 107889}
 renamed: true

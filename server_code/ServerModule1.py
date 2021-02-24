@@ -1,3 +1,6 @@
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.server
@@ -5,6 +8,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import random
 from . import Globals
+from datetime import datetime
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -101,7 +105,16 @@ def generate_errors(rules):
   return errors
   
   
-  
+@anvil.server.callable
+def log_attempt(rules, source_word, user_input_list):
+  app_tables.log.add_row(
+      won=rules['valid_input'],
+      source_word=source_word,
+      guesses=", ".join(user_input_list),
+      datetime=datetime.now(),
+      ip_address="temp.0.0.1",
+      user_agent="temp-user-agent"
+    )
   
   
   

@@ -1,5 +1,8 @@
 from ._anvil_designer import Win_ScreenTemplate
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -13,3 +16,14 @@ class Win_Screen(Win_ScreenTemplate):
     # Any code you write here will run when the form opens.
     global time
     self.time_label.text = Globals.time
+
+  def text_box_1_show(self, **event_args):
+    """This method is called when the TextBox is shown on the screen"""
+    self.text_box_1.focus()
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('High_Scores')
+
+
+

@@ -37,9 +37,26 @@ components:
     layout_properties: {grid_position: 'MIJONF,LXIAYV', full_width_row: false}
     event_bindings: {click: play_button_click}
 - type: FlowPanel
-  properties: {}
+  properties: {role: null, spacing: tiny, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, spacing_above: small, spacing_below: small, background: ''}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - type: Button
+    properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Top 10, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: topten_btn
+    layout_properties: {}
+  - type: Button
+    properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: 'log
+
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: log_btn
+    layout_properties: {}
 - type: Label
   properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: Welcome to Word Game 4.1, font_size: null, font: '', spacing_above: small,

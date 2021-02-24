@@ -1,5 +1,8 @@
 from ._anvil_designer import Play_ScreenTemplate
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
@@ -16,9 +19,7 @@ class Play_Screen(Play_ScreenTemplate):
     global source_word
     Globals.source_word = anvil.server.call('pick_source_word')
     self.word_label.text = Globals.source_word
-    
     self.item['curr_time'] = time.time()
-    print("curr_time = ", self.item['curr_time'])
 
     
   def answer_box_show(self, **event_args):
@@ -32,7 +33,12 @@ class Play_Screen(Play_ScreenTemplate):
     Globals.time = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
     Globals.user_input_list = self.answer_box.text.split()
     Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
+    
+    # log info to table
+    anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list)
+    
     if not Globals.rules['valid_input']:
       Globals.errors = anvil.server.call('generate_errors', Globals.rules)
-
-    open_form('Win_Screen')
+      open_form('Lose_Screen')
+    else:
+      open_form('Win_Screen')
