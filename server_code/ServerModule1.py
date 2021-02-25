@@ -42,7 +42,7 @@ def pick_source_word():
   
 @anvil.server.callable
 def calculate_time(curr_time, end_time):
-  total_time = round(end_time - curr_time, 4)
+  total_time = round(end_time - curr_time, 2)
   return total_time
   
   
@@ -136,7 +136,8 @@ def get_scores():
   scores = []
   for row in app_tables.scores.search(tables.order_by("time", ascending=True)):
     scores.append({
-      'time':row['time'],
+      'rank':0,
+      'time':round(row['time'], 2),
       'name':row['name'],
       'source_word':row['source_word'],
       'matches':row['matches']})

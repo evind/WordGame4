@@ -11,34 +11,40 @@ components:
   components:
   - type: Label
     properties: {}
-    name: label_2
-    layout_properties: {grid_position: 'NEWCRH,ITMUIK'}
+    name: placement_label
+    layout_properties: {grid_position: 'BOYJEY,BGSDOI'}
   - type: DataGrid
     properties:
       role: null
       columns:
-      - {id: GJFGTU, title: Rank, data_key: rank, expand: false, width: ''}
-      - {id: SZOMLZ, title: Time, data_key: time, width: ''}
-      - {id: HXDKGH, title: Name, data_key: name}
-      - {id: JZJZJG, title: Source Word, data_key: source_word}
-      - {id: NAXVYY, title: Matches, data_key: matches}
+      - {id: GJFGTU, title: Rank, data_key: rank, expand: false, width: '60'}
+      - {id: SZOMLZ, title: Time, data_key: time, width: '60'}
+      - {id: HXDKGH, title: Name, data_key: name, width: 121, expand: false}
+      - {id: JZJZJG, title: Source Word, data_key: source_word, width: 119, expand: false}
+      - {id: NAXVYY, title: Matches, data_key: matches, expand: true}
       auto_header: true
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 10
       visible: true
       show_page_controls: true
       spacing_above: small
       spacing_below: small
-      background: ''
+      background: theme:White
     name: data_grid_1
     layout_properties: {grid_position: 'HTYFSV,EXEKQA'}
     components:
     - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Post_Win_Screen.RowTemplate1}
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Post_Win_Screen.RowTemplate1,
+        background: ''}
       name: repeating_panel_2
       layout_properties: {}
+  - type: form:replay_buttons
+    properties: {}
+    name: custom_1
+    layout_properties: {grid_position: 'OHAQXK,LTBMOO'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
