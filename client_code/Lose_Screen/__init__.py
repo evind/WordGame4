@@ -10,21 +10,18 @@ from .. import Globals
 
 
 class Lose_Screen(Lose_ScreenTemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
 
-    global errors 
-    # Display any errors the user made in their answer.
-    self.repeating_panel_1.items = Globals.errors
-    
+        global errors
+        # Display any errors the user made in their answer.
+        self.repeating_panel_1.items = Globals.errors
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form('Play_Screen')
+    def button_1_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        open_form("Play_Screen")
 
-  def button_2_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form('Homepage')
-
-
+    def button_2_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        open_form("Homepage")

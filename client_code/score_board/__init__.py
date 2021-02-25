@@ -10,28 +10,28 @@ from .. import Globals
 
 
 class score_board(score_boardTemplate):
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
 
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+        global time, rank, scores
+        rank = 0
 
-    global time, rank, scores
-    rank = 0
-    
-    # Iterate over sorted scores table data to add rank number, determine rank of current 
-    # user's answer, then update repeating panel.
-    scores = anvil.server.call('get_scores')
-    for i, v in enumerate(scores, start=1):
-      v['rank'] = i
-      if v['time'] == Globals.time and v['matches'] == ", ".join(Globals.user_input_list):
-        rank = i
-    self.repeating_panel_1.items = scores
-    
-  def get_rank(self):
-    global rank
-    return rank
-  
-  def get_scores(self):
-    global scores
-    return scores
-    
+        # Iterate over sorted scores table data to add rank number, determine rank of current
+        # user's answer, then update repeating panel.
+        scores = anvil.server.call("get_scores")
+        for i, v in enumerate(scores, start=1):
+            v["rank"] = i
+            if v["time"] == Globals.time and v["matches"] == ", ".join(
+                Globals.user_input_list
+            ):
+                rank = i
+        self.repeating_panel_1.items = scores
+
+    def get_rank(self):
+        global rank
+        return rank
+
+    def get_scores(self):
+        global scores
+        return scores

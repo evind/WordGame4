@@ -7,20 +7,22 @@ from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
-class ItemTemplate2(ItemTemplate2Template):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
 
-    # Building the formatted string that will be used to display each log entry
-    if self.item['won']:
-      won = "SUCCESS"
-    else:
-      won = "FAILURE"
-    sw = self.item['source_word']
-    guesses = self.item['guesses']
-    datetime = self.item['datetime'].strftime('%a %b %-d %H:%M:%S %Y')
-    ip = self.item['ip_address']
-    ua = self.item['user_agent']
-      
-    self.label_1.text = f"{won}: {sw} - {guesses}\n{datetime} - {ip} - {ua}\n----------------------------------"
+class ItemTemplate2(ItemTemplate2Template):
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
+
+        # Building the formatted string that will be used to display each log entry
+        if self.item["won"]:
+            won = "SUCCESS"
+        else:
+            won = "FAILURE"
+        sw = self.item["source_word"]
+        guesses = self.item["guesses"]
+        datetime = self.item["datetime"].strftime("%a %b %-d %H:%M:%S %Y")
+        ip = self.item["ip_address"]
+        ua = self.item["user_agent"]
+
+        self.label_1.text = f"{won}: {sw} - {guesses}\n{datetime} - {ip} - {ua}"
+        self.label_1.text += "\n-----------------------------------------------"
