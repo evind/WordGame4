@@ -1,0 +1,52 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: 'theme:Gray 300', foreground: '', border: '',
+    visible: true, role: null, html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {}
+    name: label_2
+    layout_properties: {grid_position: 'NEWCRH,ITMUIK'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: GJFGTU, title: Rank, data_key: rank, expand: false, width: ''}
+      - {id: SZOMLZ, title: Time, data_key: time, width: ''}
+      - {id: HXDKGH, title: Name, data_key: name}
+      - {id: JZJZJG, title: Source Word, data_key: source_word}
+      - {id: NAXVYY, title: Matches, data_key: matches}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'HTYFSV,EXEKQA'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Post_Win_Screen.RowTemplate1}
+      name: repeating_panel_2
+      layout_properties: {}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Leaderboard, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {slot: title}

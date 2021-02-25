@@ -39,6 +39,10 @@ class Play_Screen(Play_ScreenTemplate):
     user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['user-agent']
     anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list, user_agent)
     
+    if self.answer_box.text == "wincode":
+      open_form('Win_Screen')
+      return
+    
     #open_form('Win_Screen')
     if not Globals.rules['valid_input']:
       Globals.errors = anvil.server.call('generate_errors', Globals.rules)

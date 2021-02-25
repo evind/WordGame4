@@ -131,9 +131,16 @@ def get_user_agent():
   return {'user-agent': anvil.server.request.headers['user-agent']}
   
   
-  
-  
-  
+@anvil.server.callable()
+def get_scores():
+  scores = []
+  for row in app_tables.scores.search(tables.order_by("time", ascending=True)):
+    scores.append({
+      'time':row['time'],
+      'name':row['name'],
+      'source_word':row['source_word'],
+      'matches':row['matches']})
+  return scores
   
   
   

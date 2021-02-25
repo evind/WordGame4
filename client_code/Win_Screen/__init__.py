@@ -25,7 +25,7 @@ class Win_Screen(Win_ScreenTemplate):
     """This method is called when the button is clicked"""
     name = self.text_box_1.text
     anvil.server.call('log_score', Globals.time, name, Globals.source_word, Globals.user_input_list)
-    open_form('High_Scores')
+    open_form('Post_Win_Screen')
 
 
 

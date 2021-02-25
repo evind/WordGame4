@@ -55,12 +55,12 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
+startup: {type: form, module: Homepage}
 package_name: CA3
 allow_embedding: false
 name: CA3
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
-startup_form: Homepage
 db_schema:
 - name: scores
   id: 107890
