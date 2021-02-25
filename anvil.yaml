@@ -61,6 +61,7 @@ allow_embedding: false
 name: WordGame4
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
+native_deps: {head_html: ''}
 db_schema:
 - name: scores
   id: 107890

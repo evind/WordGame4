@@ -16,28 +16,28 @@ components:
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Your time:', font_size: null, font: '', spacing_above: small,
+        visible: true, text: 'Your time:', font_size: 16, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_1
       layout_properties: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+        visible: true, text: '', font_size: 16, font: '', spacing_above: small, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: true, underline: false,
+        icon: ''}
       name: time_label
       layout_properties: {}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: seconds!, font_size: null, font: '', spacing_above: small,
+        visible: true, text: seconds!, font_size: 16, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_2
       layout_properties: {}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Enter your name: ', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Enter your name: ', font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_3
@@ -49,7 +49,7 @@ components:
     components:
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 16,
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: 'theme:White', bold: false, underline: false}
       name: text_box_1
@@ -57,7 +57,7 @@ components:
       event_bindings: {pressed_enter: button_1_click, show: text_box_1_show}
     - type: Button
       properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Submit, font_size: null, font: '', spacing_above: small,
+        foreground: '', visible: true, text: Submit, font_size: 16, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: button_1

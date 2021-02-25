@@ -11,7 +11,7 @@ components:
   components:
   - type: Label
     properties: {role: subheading, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Instructions, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Instructions, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: subtitle_1
@@ -23,14 +23,14 @@ components:
         \ from the letters of the source word, as quickly as you can.\n\nEach word\
         \ must:\n  1. Be made of letters from the source word. No reusing letters.\n\
         \  2. Exist in the dictionary.\n  3. Have 4 or more letters.\n  4. Not be\
-        \ a duplicate of a previous word.\n  5. Not be the source word itself.", font_size: null,
+        \ a duplicate of a previous word.\n  5. Not be the source word itself.", font_size: 16,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: instructions_1
     layout_properties: {grid_position: 'MXCYVD,BNIJXQ'}
   - type: Button
     properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: I'm ready to play, font_size: null, font: '',
+      foreground: '', visible: true, text: I'm ready to play, font_size: 16, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: play_button
@@ -44,7 +44,7 @@ components:
   components:
   - type: Button
     properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Top 10, font_size: null, font: '', spacing_above: small,
+      foreground: '', visible: true, text: Top 10, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: topten_btn
@@ -54,7 +54,7 @@ components:
     properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: 'log
 
-        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        ', font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: ''}
     name: log_btn
     layout_properties: {}
