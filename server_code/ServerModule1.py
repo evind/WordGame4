@@ -10,18 +10,15 @@ import random
 from . import Globals
 from datetime import datetime
 
+
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
 # To allow anvil.server.call() to call functions here, we mark
 # them with @anvil.server.callable.
 # Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
-#
+
+
 # Load files from Google Drive, parse + combine original words list with new_words list
 data = app_files.words.get_bytes().decode()
 words = list(data.split("\n"))
@@ -116,6 +113,7 @@ def log_attempt(new_rules, new_source_word, new_user_input_list, new_user_agent)
       user_agent=new_user_agent
     )
 
+  
 @anvil.server.callable
 def log_score(new_time, new_name, new_source_word, new_matches):
   app_tables.scores.add_row(
