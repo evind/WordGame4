@@ -15,11 +15,12 @@ class score_board(score_boardTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run when the form opens.
     global time, rank, scores
     rank = 0
-    scores = []
     scores = anvil.server.call('get_scores')
+    
+    # Iterate over sorted scores table data to add rank number, and determine rank of current 
+    user's # answer.
     for i, v in enumerate(scores, start=1):
       v['rank'] = i
       if v['time'] == Globals.time and v['matches'] == ", ".join(Globals.user_input_list):

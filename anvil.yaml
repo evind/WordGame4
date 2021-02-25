@@ -55,7 +55,7 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
-startup: {type: form, module: Home_Screen}
+startup: {type: form, module: score_board}
 package_name: CA3
 allow_embedding: false
 name: CA3

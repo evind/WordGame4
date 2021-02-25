@@ -14,11 +14,9 @@ class Lose_Screen(Lose_ScreenTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-   
-    # Any code you write here will run when the form opens.
-    global errors    
+    global errors 
+    # dynamically display any errors the user made in their answer
     self.repeating_panel_1.items = Globals.errors
-
     
 
   def button_1_click(self, **event_args):

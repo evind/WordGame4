@@ -12,6 +12,6 @@ class Top_Ten(Top_TenTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Get rank and scores from embedded score_board data grid
+    # Get rank and scores from embedded score_board data grid component
     rank = self.custom_1.get_rank()
     scores = self.custom_1.get_scores()

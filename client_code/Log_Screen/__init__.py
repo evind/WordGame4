@@ -13,8 +13,7 @@ class Log_Screen(Log_ScreenTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
-    
-    # Any code you write here will run when the form opens.
+    # Get logs data from log table and set repeating panel to display it
     logs = anvil.server.call('get_logs')
     self.repeating_panel_1.items = logs
 
