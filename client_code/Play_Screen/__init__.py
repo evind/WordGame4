@@ -30,22 +30,28 @@ class Play_Screen(Play_ScreenTemplate):
   def finished_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     global rules, user_input_list, time
-    self.item['end_time'] = time.time()
-    Globals.time = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
-    Globals.user_input_list = self.answer_box.text.split()
-    Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
     
-    # log info to table
-    user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['user-agent']
-    anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list, user_agent)
-    
-    if self.answer_box.text == "wincode":
-      open_form('Win_Screen')
-      return
-    
-    #open_form('Win_Screen')
-    if not Globals.rules['valid_input']:
-      Globals.errors = anvil.server.call('generate_errors', Globals.rules)
-      open_form('Lose_Screen')
+    if len(self.answer_box.text) < 1:
+      n = Notification("You must type an answer!")
+      n.show()
     else:
-      open_form('Win_Screen')
+      self.item['end_time'] = time.time()
+      Globals.time = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
+      Globals.user_input_list = self.answer_box.text.split()
+      Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
+      
+      # log info to table
+      user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['user-agent']
+      anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list, user_agent)
+      
+      if self.answer_box.text == "wincode":
+        open_form('Win_Screen')
+        return
+      
+      #open_form('Win_Screen')
+      if not Globals.rules['valid_input']:
+        Globals.errors = anvil.server.call('generate_errors', Globals.rules)
+        open_form('Lose_Screen')
+      else:
+        open_form('Win_Screen')
+  

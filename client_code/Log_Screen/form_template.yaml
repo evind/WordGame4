@@ -9,21 +9,26 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - type: Label
-    properties: {}
-    name: placement_label
-    layout_properties: {grid_position: 'BOYJEY,BGSDOI'}
-  - type: form:score_board
-    properties: {}
-    name: custom_2
-    layout_properties: {grid_position: 'SKNDJM,ANENYQ'}
+  - type: RepeatingPanel
+    properties: {item_template: Log_Screen.ItemTemplate2}
+    name: repeating_panel_1
+    layout_properties: {grid_position: 'VXEDRG,PEQMYZ'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - type: Button
+    properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: RETURN, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_1
+    layout_properties: {}
+    event_bindings: {click: button_1_click}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Leaderboard, font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: LOG, font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_1

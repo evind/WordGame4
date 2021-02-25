@@ -9,21 +9,17 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - type: Label
-    properties: {}
-    name: placement_label
-    layout_properties: {grid_position: 'BOYJEY,BGSDOI'}
   - type: form:score_board
     properties: {}
-    name: custom_2
-    layout_properties: {grid_position: 'SKNDJM,ANENYQ'}
+    name: custom_1
+    layout_properties: {grid_position: 'FFJRQP,ZABPLH'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Leaderboard, font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: TOP 10, font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_1

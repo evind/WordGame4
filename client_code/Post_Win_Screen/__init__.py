@@ -6,21 +6,15 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
-from .. import Globals
 
 class Post_Win_Screen(Post_Win_ScreenTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run when the form opens.
-    global time
-    rank = 0
-    scores = anvil.server.call('get_scores')
-    for i, v in enumerate(scores, start=1):
-      v['rank'] = i
-      if v['time'] == Globals.time and v['matches'] == ", ".join(Globals.user_input_list):
-        rank = i
-    self.repeating_panel_2.items = scores
+    # Get rank and scores from embedded score_board data grid
+    rank = self.custom_2.get_rank()
+    scores = self.custom_2.get_scores()
+    
     self.placement_label.text = f"Your rank is:  {rank} out of {len(scores)} players!"
     

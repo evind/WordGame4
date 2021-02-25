@@ -136,15 +136,27 @@ def get_scores():
   scores = []
   for row in app_tables.scores.search(tables.order_by("time", ascending=True)):
     scores.append({
-      'rank':0,
-      'time':round(row['time'], 2),
-      'name':row['name'],
-      'source_word':row['source_word'],
-      'matches':row['matches']})
+      'rank': 0,
+      'time': round(row['time'], 2),
+      'name': row['name'],
+      'source_word': row['source_word'],
+      'matches': row['matches']})
   return scores
   
   
-  
+@anvil.server.callable
+def get_logs():
+  logs = []
+  for row in app_tables.log.search():
+    logs.append({
+      'won': row['won'],
+      'source_word': row['source_word'],
+      'guesses': row['guesses'],
+      'datetime': row['datetime'],
+      'ip_address': row['ip_address'],
+      'user_agent': row['user_agent']
+    })
+  return logs
   
   
   

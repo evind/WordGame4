@@ -2,17 +2,48 @@ container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
 components:
-- type: DataGrid
-  properties:
-    columns:
-    - {id: FKBYIE, title: Column 1, data_key: column_1}
-    - {id: CDUFHC, title: Column 2, data_key: column_2}
-    - {id: DVQXSN, title: Column 3, data_key: column_3}
-  name: data_grid_1
-  layout_properties: {grid_position: 'QFNSCO,DFSZGK'}
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'JYMUWP,EAVNVR'}
   components:
-  - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: score_board.RowTemplate2}
-    name: repeating_panel_1
-    layout_properties: {}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'The top 10 scores (use the arrows to browse further):',
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'EFNIPE,SDBFZT'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: FKBYIE, title: Rank, data_key: rank, width: '60'}
+      - {id: CDUFHC, title: Time, data_key: time, width: '60'}
+      - {id: DVQXSN, title: Name, data_key: name, width: '120'}
+      - {id: DVUWAX, title: Source Word, data_key: source_word, width: '150'}
+      - {id: MVRUNX, title: Matches, data_key: matches, expand: true}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 10
+      visible: true
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: theme:White
+    name: data_grid_1
+    layout_properties:
+      col_widths: {}
+      grid_position: NXYPPW,YVGZXD
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: score_board.RowTemplate2}
+      name: repeating_panel_1
+      layout_properties: {}
+  - type: form:replay_buttons
+    properties: {}
+    name: custom_1
+    layout_properties: {grid_position: 'DHZZEH,HNXURD'}
 is_package: true

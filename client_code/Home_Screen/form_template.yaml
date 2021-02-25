@@ -49,6 +49,7 @@ components:
       underline: false, icon: ''}
     name: topten_btn
     layout_properties: {}
+    event_bindings: {click: topten_btn_click}
   - type: Button
     properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: 'log
@@ -57,6 +58,7 @@ components:
       italic: false, background: '', bold: false, underline: false, icon: ''}
     name: log_btn
     layout_properties: {}
+    event_bindings: {click: log_btn_click}
 - type: Label
   properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: Welcome to Word Game 4.1, font_size: null, font: '', spacing_above: small,
