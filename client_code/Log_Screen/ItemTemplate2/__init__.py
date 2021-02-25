@@ -12,7 +12,7 @@ class ItemTemplate2(ItemTemplate2Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run when the form opens.
+    # Building the formatted string that will be used to display each log entry
     if self.item['won']:
       won = "SUCCESS"
     else:

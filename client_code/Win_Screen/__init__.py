@@ -22,12 +22,12 @@ class Win_Screen(Win_ScreenTemplate):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    # Prevent user from submitting empty name
+    # Prevent user from submitting empty name.
     if len(self.text_box_1.text) < 1:
       n = Notification("Please fill in a name!")
       n.show()
     else:
-      # log the user's win in the scores table, then send to post-win screen
+      # Log the user's win in the scores table, then send to post-win screen.
       name = self.text_box_1.text
       anvil.server.call('log_score', Globals.time, name, Globals.source_word, Globals.user_input_list)
       open_form('Post_Win_Screen')

@@ -17,10 +17,10 @@ class score_board(score_boardTemplate):
 
     global time, rank, scores
     rank = 0
-    scores = anvil.server.call('get_scores')
     
-    # Iterate over sorted scores table data to add rank number, and determine rank of current 
-    user's # answer.
+    # Iterate over sorted scores table data to add rank number, determine rank of current 
+    # user's answer, then update repeating panel.
+    scores = anvil.server.call('get_scores')
     for i, v in enumerate(scores, start=1):
       v['rank'] = i
       if v['time'] == Globals.time and v['matches'] == ", ".join(Globals.user_input_list):

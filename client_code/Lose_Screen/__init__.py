@@ -15,7 +15,7 @@ class Lose_Screen(Lose_ScreenTemplate):
     self.init_components(**properties)
 
     global errors 
-    # dynamically display any errors the user made in their answer
+    # Display any errors the user made in their answer.
     self.repeating_panel_1.items = Globals.errors
     
 

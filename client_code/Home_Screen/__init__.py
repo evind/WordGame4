@@ -24,4 +24,3 @@ class Home_Screen(Home_ScreenTemplate):
   def log_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Log_Screen')
-

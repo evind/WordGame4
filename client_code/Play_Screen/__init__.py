@@ -28,22 +28,22 @@ class Play_Screen(Play_ScreenTemplate):
     """This method is called when the button is clicked"""
     global rules, user_input_list, time
     
-    # Prevent user from submitting empty answer
+    # Prevent user from submitting empty answer.
     if len(self.answer_box.text) < 1:
       n = Notification("You must type an answer!")
       n.show()
     else:
-      # Calculate time to answer & evaluate user's answer
+      # Calculate time to answer & evaluate user's answer.
       self.item['end_time'] = time.time()
       Globals.time = anvil.server.call('calculate_time', self.item['curr_time'], self.item['end_time'])
       Globals.user_input_list = self.answer_box.text.split()
       Globals.rules = anvil.server.call('evaluate_answer', Globals.source_word, Globals.user_input_list)
       
-      # Get user-agent info, then log their attempt to the log table
+      # Get user-agent info, then log their attempt to the log table.
       user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['user-agent']
       anvil.server.call('log_attempt', Globals.rules, Globals.source_word, Globals.user_input_list, user_agent)
       
-      # Send user to the win or lose screen based on their answer
+      # Send user to the win or lose screen based on their answer.
       if not Globals.rules['valid_input']:
         Globals.errors = anvil.server.call('generate_errors', Globals.rules)
         open_form('Lose_Screen')

@@ -55,10 +55,10 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
-startup: {type: form, module: score_board}
-package_name: CA3
+startup: {type: form, module: Win_Screen}
+package_name: WordGame4
 allow_embedding: false
-name: CA3
+name: WordGame4
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
 db_schema:
