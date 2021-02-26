@@ -26,7 +26,7 @@ class score_board(score_boardTemplate):
                 Globals.user_input_list
             ):
                 rank = i
-        self.repeating_panel_1.items = scores[0:9]
+        self.repeating_panel_1.items = scores
 
     def get_rank(self):
         global rank
