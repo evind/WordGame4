@@ -15,7 +15,7 @@ class Win_Screen(Win_ScreenTemplate):
         self.init_components(**properties)
 
         global time
-        self.time_label.text = Globals.time
+        self.time_label.text = "{:0.2f}".format(Globals.time)
 
     def text_box_1_show(self, **event_args):
         """Focus user cursor in this text box so they can type right away"""
